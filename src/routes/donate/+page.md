@@ -12,10 +12,10 @@ If you like this page, my work on my various projects, or whatever I did that ha
 
 | coin         | symbol | wallet address                                                                                                                    |
 | ------------ | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
-| Bitcoin      | BTC    | <span class="letter-break">bc1q02cl0c9ed465kddvegy0um7x0zjr3t7jydcumg</span>                                                      |                                                    |
-| Ethereum     | ETH    | <span class="letter-break">0xeE67197329F8Aa4dD30250aeB369DA0Dec5E30E9</span>                                                                |
-| Monero       | XMR    | <span class="letter-break">49XVAsnVEyNdX4P73uzuEcioy4wAUmKUD6NbMgG3dGoYZEVjiMmBRoq6QnQdpcWmNgFpQLbniK7BU1weNB3DGL6S9nysDjd</span> |
-| Solana       | SOL    | <span class="letter-break">pN6NpdF6r5Bx4WPhM9Ryz7wzFNpJTsmoE2vF5VnUBWX</span>                                                    |
+| Bitcoin      | BTC    | <span class="letter-break">in the middle of migrating wallets</span>                                                      |                                                    |
+| Ethereum     | ETH    | <span class="letter-break">in the middle of migrating wallets</span>                                                                |
+| Monero       | XMR    | <span class="letter-break">in the middle of migrating wallets</span> |
+| Solana       | SOL    | <span class="letter-break">in the middle of migrating wallets</span>                                                    |
 
 **<i class="fa-solid fa-warning"></i> Warning: Please do not add a high miner fee to your payment.** These transactions do not need to reach me instantly, so it's not worth spending a lot on fees.
 
