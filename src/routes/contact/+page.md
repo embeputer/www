@@ -2,10 +2,11 @@
 
 If you need to contact me, I have a few options you can use.
 
-- [<i class="fa-brands fa-signal-messenger"></i> @cms.14](https://signal.me/#eu/yzmB2JtCwyRGEoBWk8H6g5vAxcfJ0ZyMiIPDkFm1K9jb6-RfdhRPvLY3v9aLsOEJ) | Signal (regained access to account and username, but currently have signal uninstalled, link is also out of date) <i class="fa-solid fa-lock">
+- [<i class="fa-brands fa-signal-messenger"></i> @nAa](https://signal.me/) | Signal (this account does not exist. i currently dont use signal) <i class="fa-solid fa-lock">
+- [<i class="fa-brands fa-telegram"></i> @viicoal](https://t.me/viicoal) | Telegram (just dont be weird i beg, to prove youre not a robot i currently dont respond unless your first message is PGP encrypted with your public key file attached.) <i class="fa-solid fa-lock">
 - [<i class="fa-solid fa-envelope"></i> charco@tuta.io](mailto:charco@tuta.io) | E-mail <i class="fa-solid fa-key"></i>
 
-**<i class="fa-solid fa-lock"></i> These are secure platforms (except telegram).** If you need to reach out to me regarding sensitive information, You can use most of these methods for your safety.
+**<i class="fa-solid fa-lock"></i> These are reasonably secure platforms.** If you need to reach out to me regarding sensitive information, You can use most of these methods for your safety.
 
 ### OpenPGP and Email
 

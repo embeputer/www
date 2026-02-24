@@ -1,9 +1,9 @@
-## about the anon
+## about the webmastah
 
-hellow!!!!! my name is charlie, i and the founder of the Neuron Foundation together with [Juniper!](https://orb.gay). I'm an ambivert that is very very interested in privacy (fuck google lol).
+hillow!!!!! my name is charlie, i and the founder of the Neuron Foundation together with [Juniper!](https://orb.gay). I'm an ambivert, hope that tells you anything. I'm a furry. designer, and developer.
 
-Considering myself an ambivert, i still don't have much of a big friend circle (i prefer a couple core friends than 365 friends that i forgot to text like 8 months ago)
+I dabble in go and ther things. I am VERY skeptical of AI, but i still run experiments for it and sometimes use it for coding.
 
-I dream of one day helping someone with my creations, and to have a cool office for neuron where i can throw hackathons and parties lmao
+To answer what i dream about (that's the script, yeah?), i probably just want to be able to make something cool that helps someone one day, well and other things.
 
-If you wanna try to befriend me, then try idk (i dont think ill respond though)
+For a finishing statement, i like cats, i'm pansexual, and i'm non-binary.
