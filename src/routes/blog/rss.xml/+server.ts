@@ -16,8 +16,8 @@ ${posts
 		(post: { meta: { title: any; date: string | number | Date }; path: any; content: { html: any } }) => `
 <item>
 <title>${post.meta.title}</title>
-<link>https://t480.dev${post.path}</link>
-<guid>https://t480.dev{post.path}</guid>
+<link>https://t480.dev/${post.path}</link>
+<guid>https://t480.dev/${post.path}</guid>
 <pubDate>${new Date(post.meta.date).toUTCString()}</pubDate>
 <description>
 <![CDATA[${post.content.html}]]>

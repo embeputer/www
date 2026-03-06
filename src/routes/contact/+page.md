@@ -16,7 +16,6 @@ IF you are contacting me via email and you yourself are emailing me from a Tuta 
 
 When sending me your encrypting email, you will need my OpenPGP public key. You can obtain it from the following sources:
 
-- [<i class="fa-solid fa-link"></i> /resources/charlie.asc](https://t480.dev/resources/charlie.asc)
 - [<i class="fa-solid fa-link"></i> keys.openpgp.org](https://keys.openpgp.org/search?q=charco%40tuta.io)
 
 If you want further details on how to use OpenPGP, [this is a pretty good guide](https://help.riseup.net/en/security/message-security/openpgp) that goes into much further detail.

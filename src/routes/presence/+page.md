@@ -8,12 +8,13 @@ If you ask, my usernames are different because [insert 200 word thesis on having
 
 ### Developemnt
 
-- [<i class="fa-brands fa-github"></i> vvichar](https://github.com/vvichar) | GitHub
+- [<i class="fa-brands fa-github"></i> embeputer](https://github.com/embeputer) | GitHub
 
 ### Social
 
 - [<i class="fa-brands fa-bluesky"></i> @puppy.orb.gay](https://bsky.app/profile/puppy.orb.gay) | Bluesky
-- [<i class="fa-brands fa-x-twitter"></i> @cyberipup](https://x.com/@cyberipup) | Twitter
+- [<i class="fa-brands fa-x-twitter"></i> @embeputer](https://x.com/@embeputer) | Twitter
 - [<i class="fa-brands fa-mastodon"></i> @imcharlie](https://hachyderm.io/@imcharlie) | Mastodon
 
-**<i class="fa-solid fa-key"></i> These profiles do not have a Keyoxide registry anymore. Interact at your own risk.** See my new PGP key at [/resources](https://t480.dev/resources) so you could be able to contact me using PGP. (once again, CONTACT ONLY)
+**<i class="fa-solid fa-key"></i> These profiles do not have a Keyoxide registry anymore. Interact at your own risk.** See my PGP key on [my contact page](/contact) so you could be able to contact me using PGP. (once again, CONTACT ONLY)
+

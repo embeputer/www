@@ -18,9 +18,9 @@ ${posts
 		(post: { meta: { title: any; date: string | number | Date }; path: any; content: { html: any } }) => `
 <entry>
 <title>${post.meta.title}</title>
-<link href="https://t480.dev${post.path}"/>
+<link href="https://t480.dev/${post.path}"/>
 <updated>${new Date(post.meta.date).toISOString()}</updated>
-<id>tag:t480.devt,${post.meta.date}:${post.path}</id>
+<id>tag:t480.dev,${post.meta.date}:${post.path}</id>
 <summary>${post.meta.title}</summary>
 <content type="html">
 <![CDATA[${post.content.html}]]>
