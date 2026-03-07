@@ -1,5 +1,4 @@
-# AGENTS.md - project documentation for AI agents (not ignored)
-
+AGENTS.md
 .DS_Store
 node_modules
 /build
