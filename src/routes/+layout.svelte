@@ -25,7 +25,7 @@
 	<meta property="og:description" content="yeah uh this charlie nest of autism" />
 	<meta property="og:url" content="https://t480.dev{$page.url.pathname}" />
 	<meta property="og:image" content={picture} />
-	<a rel="me" href="https://hachyderm.io/@imcharlie" class="sr-only">Mastodon</a>
+	<link rel="me" href="https://hachyderm.io/@imcharlie" />
 </svelte:head>
 
 <header>
@@ -58,6 +58,6 @@
 </main>
 
 <footer>
-	<p><i>made with</i> ❤ <i>by charlie | <i>site last modified 6th of March 2026</i> | <a href="https://github.com/embeputer/www">source code viewable here</a></i></p>
+	<p><i>made with</i> ❤ <i>by charlie</i> | <i>site last modified 6th of March 2026</i> | <a href="https://github.com/embeputer/www">source code viewable here</a></p>
 	<p><img src={blahaj} alt="blåhaj" style="height:15px;"> certified Good Website by blåhaj</p>
 </footer>
