@@ -3,6 +3,19 @@
 	import picture from '/assets/picture.png';
 	import blahaj from '/assets/blahaj.png';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
+
+	function getVilniusTime() {
+		return new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Vilnius' });
+	}
+
+	let vilniusTime = getVilniusTime();
+
+	onMount(() => {
+		vilniusTime = getVilniusTime();
+		const interval = setInterval(() => { vilniusTime = getVilniusTime(); }, 1000);
+		return () => clearInterval(interval);
+	});
 </script>
 
 <svelte:head>
@@ -17,7 +30,7 @@
 
 <header>
 	<h1>charlie's webcave</h1>
-	<p>you know youre better than this.</p>
+	<p>the time in vilnius is {vilniusTime}</p>
 </header>
 
 <main>
