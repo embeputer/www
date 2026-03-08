@@ -79,13 +79,18 @@
 			const events = await res.json();
 			const push = events.find((e: { type: string }) => e.type === 'PushEvent');
 			if (!push) return;
-			const c = push.payload.commits?.at(-1);
-			if (!c) return;
+			const sha = push.payload.head;
+			if (!sha) return;
+			const commitRes = await fetch(
+				`https://api.github.com/repos/${push.repo.name}/commits/${sha}`
+			);
+			if (!commitRes.ok) return;
+			const commitData = await commitRes.json();
 			commit = {
-				message: c.message.split('\n')[0],
+				message: commitData.commit.message.split('\n')[0],
 				repo: push.repo.name,
-				sha: c.sha,
-				url: `https://github.com/${push.repo.name}/commit/${c.sha}`,
+				sha,
+				url: commitData.html_url,
 				timestamp: Math.floor(new Date(push.created_at).getTime() / 1000)
 			};
 		} catch {
