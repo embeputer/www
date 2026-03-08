@@ -1,4 +1,4 @@
-export const fetchMarkdownPosts = async () => {
+export const fetchMarkdownPosts = async ({ includeContent = false } = {}) => {
 	const iterablePostFiles = Object.entries(import.meta.glob('/src/routes/blog/entry/*/+page.md'));
 
 	const allPosts = await Promise.all(
@@ -7,7 +7,7 @@ export const fetchMarkdownPosts = async () => {
 			return {
 				meta: post.metadata,
 				path: path.slice(11, -8),
-				content: post.default.render()
+				...(includeContent && { content: post.default.render() })
 			};
 		})
 	);
