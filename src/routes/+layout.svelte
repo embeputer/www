@@ -58,6 +58,6 @@
 </main>
 
 <footer>
-	<p><i>made with</i> ❤ <i>by charlie</i> | <i>site last modified 6th of March 2026</i> | <a href="https://github.com/embeputer/www">source code viewable here</a></p>
+	<p><i>made with</i> ❤ <i>by charlie</i> | <i>site last modified 8th of March 2026</i> | <a href="https://github.com/embeputer/www">source code viewable here</a></p>
 	<p><img src={blahaj} alt="blåhaj" style="height:15px;"> certified Good Website by blåhaj</p>
 </footer>

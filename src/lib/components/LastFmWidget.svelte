@@ -25,6 +25,7 @@
 	let error = false;
 	let loading = true;
 	let interval: ReturnType<typeof setInterval>;
+	let commitInterval: ReturnType<typeof setInterval>;
 
 	let commit: Commit | null = null;
 
@@ -102,10 +103,12 @@
 		fetchTrack();
 		fetchCommit();
 		interval = setInterval(fetchTrack, 30000);
+		commitInterval = setInterval(fetchCommit, 60000);
 	});
 
 	onDestroy(() => {
 		clearInterval(interval);
+		clearInterval(commitInterval);
 	});
 </script>
 
