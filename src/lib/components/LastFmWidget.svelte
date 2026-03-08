@@ -13,10 +13,20 @@
 		timestamp: number | null;
 	};
 
+	type Commit = {
+		message: string;
+		repo: string;
+		sha: string;
+		url: string;
+		timestamp: number;
+	};
+
 	let track: Track | null = null;
 	let error = false;
 	let loading = true;
 	let interval: ReturnType<typeof setInterval>;
+
+	let commit: Commit | null = null;
 
 	function relativeTime(uts: number): string {
 		const diff = Math.floor(Date.now() / 1000) - uts;
@@ -60,8 +70,32 @@
 		}
 	}
 
+	async function fetchCommit() {
+		try {
+			const res = await fetch(
+				'https://api.github.com/users/embeputer/events/public?per_page=10'
+			);
+			if (!res.ok) return;
+			const events = await res.json();
+			const push = events.find((e: { type: string }) => e.type === 'PushEvent');
+			if (!push) return;
+			const c = push.payload.commits?.at(-1);
+			if (!c) return;
+			commit = {
+				message: c.message.split('\n')[0],
+				repo: push.repo.name,
+				sha: c.sha,
+				url: `https://github.com/${push.repo.name}/commit/${c.sha}`,
+				timestamp: Math.floor(new Date(push.created_at).getTime() / 1000)
+			};
+		} catch {
+			/* silent fail */
+		}
+	}
+
 	onMount(() => {
 		fetchTrack();
+		fetchCommit();
 		interval = setInterval(fetchTrack, 30000);
 	});
 
@@ -95,6 +129,15 @@
 				</span>
 			</div>
 		</a>
+	{/if}
+	{#if commit}
+		<div class="commit-bar">
+			<i class="fa-solid fa-code-commit"></i>
+			<a href={commit.url} class="commit-link" target="_blank" rel="noopener noreferrer">
+				<span class="commit-msg">{commit.message}</span>
+			</a>
+			<span class="commit-time">{relativeTime(commit.timestamp)}</span>
+		</div>
 	{/if}
 </div>
 
@@ -170,6 +213,41 @@
 		color: var(--textColor);
 		font-size: 0.8em;
 		margin-top: 4px;
+		opacity: 0.75;
+	}
+
+	.commit-bar {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		margin-top: 10px;
+		padding-top: 8px;
+		border-top: 1px solid var(--textColor);
+		font-size: 0.8em;
+		color: var(--textColor);
+		opacity: 0.85;
+	}
+
+	.commit-link {
+		color: var(--linkColor);
+		text-decoration: none;
+		min-width: 0;
+		flex: 1;
+	}
+
+	.commit-link:hover .commit-msg {
+		text-decoration: underline;
+	}
+
+	.commit-msg {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: block;
+	}
+
+	.commit-time {
+		flex-shrink: 0;
 		opacity: 0.75;
 	}
 </style>
