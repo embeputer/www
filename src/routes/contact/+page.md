@@ -1,9 +1,9 @@
-## *ring ring* oh, someone's contacting me
+## _ring ring_ oh, someone's contacting me
 
 If you need to contact me, I have a few options you can use.
 
-- [<i class="fa-brands fa-signal-messenger"></i> @nAa](https://signal.me/) | Signal (this account does not exist. i currently dont use signal) <i class="fa-solid fa-lock">
-- [<i class="fa-brands fa-telegram"></i> @embeputer](https://t.me/embeputer) | Telegram (just dont be weird i beg, to prove youre not a robot i currently dont respond unless your first message is PGP encrypted with your public key file attached.) <i class="fa-solid fa-lock">
+- [<i class="fa-brands fa-signal-messenger"></i> @nAa](https://signal.me/) | Signal (this account does not exist. i currently dont use signal) <i class="fa-solid fa-lock"></i>
+- [<i class="fa-brands fa-telegram"></i> @embeputer](https://t.me/embeputer) | Telegram (just dont be weird i beg, to prove youre not a robot i currently dont respond unless your first message is PGP encrypted with your public key file attached.) <i class="fa-solid fa-lock"></i>
 - [<i class="fa-solid fa-envelope"></i> charco@tuta.io](mailto:charco@tuta.io) | E-mail <i class="fa-solid fa-key"></i>
 
 **<i class="fa-solid fa-lock"></i> These are reasonably secure platforms.** If you need to reach out to me regarding sensitive information, You can use most of these methods for your safety.

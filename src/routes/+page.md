@@ -31,7 +31,9 @@ this is my cave, but on the quite fun interwebs. this website has been made non-
 <LastFmWidget />
 
 ---
+
 ### [Sign my Guestbook here!](https://charcoal.atabook.org)
+
 ---
 
 <div>
