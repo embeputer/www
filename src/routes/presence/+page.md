@@ -17,4 +17,3 @@ If you ask, my usernames are different because [insert 200 word thesis on having
 - [<i class="fa-brands fa-mastodon"></i> @imcharlie](https://hachyderm.io/@imcharlie) | Mastodon
 
 **<i class="fa-solid fa-key"></i> These profiles do not have a Keyoxide registry anymore. Interact at your own risk.** See my PGP key on [my contact page](/contact) so you could be able to contact me using PGP. (once again, CONTACT ONLY)
-

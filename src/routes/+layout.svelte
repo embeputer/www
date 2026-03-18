@@ -13,7 +13,9 @@
 
 	onMount(() => {
 		vilniusTime = getVilniusTime();
-		const interval = setInterval(() => { vilniusTime = getVilniusTime(); }, 1000);
+		const interval = setInterval(() => {
+			vilniusTime = getVilniusTime();
+		}, 1000);
 		return () => clearInterval(interval);
 	});
 </script>
@@ -36,13 +38,13 @@
 <main>
 	<nav>
 		<div class="links">
-			<a href="/" class:active={$page.url.pathname == '/'}><i class="fa-solid fa-house"></i> home</a>
-			<a href="/blog/" class:active={$page.url.pathname == '/blog/'}><i class="fa-solid fa-newspaper"></i> my blog</a>
-			<a href="/about" class:active={$page.url.pathname == '/about/'}><i class="fa-solid fa-address-card"></i> about me</a>
-			<a href="/projects" class:active={$page.url.pathname == '/projects/'}><i class="fa-solid fa-code"></i> projects</a>
-			<a href="/contact" class:active={$page.url.pathname == '/contact/'}><i class="fa-solid fa-paper-plane"></i> contact</a>
-			<a href="/presence" class:active={$page.url.pathname == '/presence/'}><i class="fa-solid fa-user"></i> presence</a>
-			<a href="/donate" class:active={$page.url.pathname == '/donate/'}><i class="fa-solid fa-piggy-bank"></i> donate</a>
+			<a href="/" class:active={$page.url.pathname === '/'}><i class="fa-solid fa-house"></i> home</a>
+			<a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}><i class="fa-solid fa-newspaper"></i> my blog</a>
+			<a href="/about" class:active={$page.url.pathname.startsWith('/about')}><i class="fa-solid fa-address-card"></i> about me</a>
+			<a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}><i class="fa-solid fa-code"></i> projects</a>
+			<a href="/contact" class:active={$page.url.pathname.startsWith('/contact')}><i class="fa-solid fa-paper-plane"></i> contact</a>
+			<a href="/presence" class:active={$page.url.pathname.startsWith('/presence')}><i class="fa-solid fa-user"></i> presence</a>
+			<a href="/donate" class:active={$page.url.pathname.startsWith('/donate')}><i class="fa-solid fa-piggy-bank"></i> donate</a>
 		</div>
 		<div class="images">
 			<hr />
@@ -59,5 +61,5 @@
 
 <footer>
 	<p><i>made with</i> ❤ <i>by charlie</i> | <i>site last modified 8th of March 2026</i> | <a href="https://github.com/embeputer/www">source code viewable here</a></p>
-	<p><img src={blahaj} alt="blåhaj" style="height:15px;"> certified Good Website by blåhaj</p>
+	<p><img src={blahaj} alt="blåhaj" style="height:15px;" /> certified Good Website by blåhaj</p>
 </footer>

@@ -73,18 +73,14 @@
 
 	async function fetchCommit() {
 		try {
-			const res = await fetch(
-				'https://api.github.com/users/embeputer/events/public?per_page=10'
-			);
+			const res = await fetch('https://api.github.com/users/embeputer/events/public?per_page=10');
 			if (!res.ok) return;
 			const events = await res.json();
 			const push = events.find((e: { type: string }) => e.type === 'PushEvent');
 			if (!push) return;
 			const sha = push.payload.head;
 			if (!sha) return;
-			const commitRes = await fetch(
-				`https://api.github.com/repos/${push.repo.name}/commits/${sha}`
-			);
+			const commitRes = await fetch(`https://api.github.com/repos/${push.repo.name}/commits/${sha}`);
 			if (!commitRes.ok) return;
 			const commitData = await commitRes.json();
 			commit = {
