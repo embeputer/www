@@ -11,8 +11,8 @@ If you like this page, my work on my various projects, or whatever I did that ha
 ### Or with crypto if that is what you dabble with
 
 | coin     | symbol | wallet address                                                                                                                    |
-| -------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- | --- |
-| Bitcoin  | BTC    | <span class="letter-break">in the middle of migrating wallets</span>                                                              |     |
+| -------- | ------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| Bitcoin  | BTC    | <span class="letter-break">in the middle of migrating wallets</span>                                                              |
 | Ethereum | ETH    | <span class="letter-break">0xE6d0B6a40C74462962419A14b8a33096090F55aC</span>                                                      |
 | Monero   | XMR    | <span class="letter-break">49XVAsnVEyNdX4P73uzuEcioy4wAUmKUD6NbMgG3dGoYZEVjiMmBRoq6QnQdpcWmNgFpQLbniK7BU1weNB3DGL6S9nysDjd</span> |
 | Solana   | SOL    | <span class="letter-break">in the middle of migrating wallets</span>                                                              |
