@@ -1,6 +1,6 @@
-# itzzen.net
+# ze embsite
 
-this is the source code for the [itzzen.net](https://itzzen.net) website
+this is the source code for moi website
 
 ## developing
 
