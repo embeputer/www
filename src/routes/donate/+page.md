@@ -24,4 +24,3 @@ If you like this page, my work on my various projects, or whatever I did that ha
 ### Referral Links
 
 - [<i class="fa-solid fa-link"></i> Tutanota](https://app.tuta.com/signup?ref=b0YyMmxYVmg) | By signing up to a tuta yearly subscription with my link, i will receive 25% of your first payment in credit on my account, and you get a free month.
-- [<i class="fa-solid fa-link"></i> v0](https://v0.app/ref/UX2A88) | By signing up for v0, you get 5$ credit for free and 20$ if you subscribe to a plan.
