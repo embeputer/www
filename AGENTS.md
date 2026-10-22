@@ -74,3 +74,11 @@ static/
 ## Domain
 
 - Production: https://t480.dev
+
+## Cursor Cloud
+
+- Node.js 22 is already on the default image. Vite 8 needs `^20.19` or `>=22.12`.
+- `npm ci` installs dependencies. `npm run dev -- --host 0.0.0.0 --port 5173` serves the site.
+- `VITE_LASTFM_API_KEY` is optional. Without it, the homepage widget shows "couldn't load last.fm data."
+- `npm run test` is not defined. Use `npm run check` and `npm run build`. `npm run lint` currently fails on existing ESLint issues.
+- Client hydration breaks if SvelteKit's dev server returns raw files for `/assets/*?import`. After `npm ci`, run `python3 scripts/patch-kit-static-import.py` before opening the dev server in a browser. The Cloud Agent install applies the same guard.
