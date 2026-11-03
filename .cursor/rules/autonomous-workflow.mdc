@@ -1,0 +1,16 @@
+---
+description: End-to-end autonomous engineer workflow for Cursor agents
+alwaysApply: true
+---
+
+# Autonomous engineer (always on)
+
+Full detail lives in repo-root **`AGENTS.md`** → *Autonomous engineer workflow* and *Project facts*. Follow it on every task.
+
+- **Own end-to-end:** understand → brief plan → implement → verify → ship. No stopping at plans or partial diffs.
+- **Iterate until done:** long runs are fine; decide reversible choices yourself and note assumptions in the PR.
+- **Verify for real:** `npm ci` then `npm run check`, `npm run lint`, `npm run build` (and UI manual check when relevant). Fix and re-run until green.
+- **Tests:** add/update when the repo has a test setup and you changed behavior (none in `package.json` today).
+- **PR:** clear description (what, why, verification, assumptions, follow-ups); watch CI and fix failures.
+- **Ask only for:** secrets, irreversible/destructive actions, or truly ambiguous product calls.
+- **Leave code clean;** finish with a concise report and verification evidence.
