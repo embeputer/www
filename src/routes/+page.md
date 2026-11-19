@@ -1,5 +1,4 @@
 <script>
-import LastFmWidget from "$lib/components/LastFmWidget.svelte";
 import itzzennet from "/assets/buttons/itzzennet.png";
 import vmfunc from "/assets/buttons/vmfunc.png";
 import linux from "/assets/buttons/linux.png"
@@ -27,8 +26,6 @@ import firefox from "/assets/buttons/firefox.gif";
 ## hiya, name's charlie.
 
 this is my cave, but on the quite fun interwebs. this website has been made non-modern to preserve the fun-ness of the old internet. go crazy here, i made this place for a reason. Enjoy your stay!
-
-<LastFmWidget />
 
 ---
 
