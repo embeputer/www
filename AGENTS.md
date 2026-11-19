@@ -48,6 +48,7 @@ static/
 - `.md` files are processed by mdsvex
 - Blog entries live at `src/routes/blog/entry/<date>/+page.md` with frontmatter: `title`, `date`, optionally `modified`
 - `blogEntries.ts` uses `import.meta.glob` to discover posts and sorts by date descending
+- Add a post with `npm run new-post` (see below). Do not hand-write the entry path or frontmatter.
 
 ## Key conventions
 
@@ -70,6 +71,19 @@ static/
 - `npm run test` – Playwright tests
 - `npm run check` – Svelte type check
 - `npm run lint` / `npm run format` – Prettier + ESLint
+- `npm run new-post` – write one blog entry locally. Does not commit or push.
+
+## Writing a blog post
+
+The entry layout (`reader.svelte`) already renders the title, publish date, and author. The markdown file is the post body, wrapped in frontmatter.
+
+Create it with the script so the path and frontmatter match the other entries:
+
+```
+npm run new-post -- --title "post title" --date YYYY-MM-DD --body-file draft.md
+```
+
+A full draft piped on stdin works too. If that draft starts with frontmatter, `title`, `date`, and `modified` are used when the matching flag is omitted. The file lands at `src/routes/blog/entry/YYYYMMDD/+page.md`. One post per calendar day; pass `--force` only to replace that day's file. The index, atom feed, and RSS feed discover the file on their own. Do not commit or push unless the user asks.
 
 ## Domain
 
