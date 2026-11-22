@@ -13,4 +13,4 @@ not much lol except me changing my pgp key, you should get the new one from keys
 
 # End.
 
-This is the end of my blog post, uhhh insert conclusion or something here, charlie out!
+This is the end of my blog post, uhhh insert conclusion or something here, ember out!

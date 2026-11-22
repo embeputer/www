@@ -14,19 +14,18 @@
 </script>
 
 <svelte:head>
-	<title>{title} | charlie's blog</title>
-	<meta name="description" content="charlie's comfy blog" />
-	<meta property="og:title" content="{title} | charlie's blog" />
-	<meta property="og:description" content="charlie's comfy blog" />
+	<title>{title} | ember's blog</title>
+	<meta name="description" content="ember's comfy blog" />
+	<meta property="og:title" content="{title} | ember's blog" />
+	<meta property="og:description" content="ember's comfy blog" />
 </svelte:head>
 
-<p><a href="https://t480.dev/blog"><i class="fa-solid fa-arrow-left"></i> back to my blog</a></p>
+<p class="back"><a href="/blog/">back to my blog</a></p>
 
 <h2>{title}</h2>
-<p>publish date: {date}</p>
+<p class="meta">publish date: {date}</p>
 {#if modified}
-	<p>modified date: {modified}</p>
+	<p class="meta">modified date: {modified}</p>
 {/if}
-<p>author: charlie (charco@tuta.io) (@cms.14)</p>
-<hr />
+<p class="meta">author: ember (stellirious@gmail.com) (@cms.14)</p>
 <slot />

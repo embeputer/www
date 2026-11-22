@@ -1,9 +1,23 @@
 <script>
-	import censor from '/assets/censor.gif';
-	import picture from '/assets/picture.png';
-	import blahaj from '/assets/blahaj.png';
 	import { page } from '$app/stores';
 	import { onMount } from 'svelte';
+	import { onNavigate } from '$app/navigation';
+
+	onNavigate((navigation) => {
+		if (!document.startViewTransition) return;
+		if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+		const to = navigation.to?.url.pathname ?? '/';
+		const from = navigation.from?.url.pathname ?? '/';
+		document.documentElement.classList.toggle('is-back', to === '/' || to.length < from.length);
+
+		return new Promise((resolve) => {
+			document.startViewTransition(async () => {
+				resolve();
+				await navigation.complete;
+			});
+		});
+	});
 
 	function getVilniusTime() {
 		return new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Vilnius' });
@@ -18,48 +32,42 @@
 		}, 1000);
 		return () => clearInterval(interval);
 	});
+
+	const names = {
+		'/': 'home',
+		'/projects/': 'projects',
+		'/blog/': 'blog',
+		'/contact/': 'contact',
+		'/donate/': 'donate',
+		'/guestbook/': 'guestbook'
+	};
+
+	$: pathname = $page.url.pathname;
+	$: isHome = pathname === '/';
+	$: pageName = pathname.startsWith('/blog/entry/') ? 'blog' : (names[pathname] ?? 'ember');
+	$: documentTitle = isHome ? 'le ember' : `${pageName} · ember`;
 </script>
 
 <svelte:head>
-	<title>{$page.url.pathname} | charlie's webcave</title>
-	<meta content="#FFC0CB" data-react-helmet="true" name="theme-color" />
-	<meta property="og:title" content="charlie's house in the interwebs | {$page.url.pathname}" />
-	<meta property="og:description" content="yeah uh this charlie nest of autism" />
-	<meta property="og:url" content="https://t480.dev{$page.url.pathname}" />
-	<meta property="og:image" content={picture} />
+	<title>{documentTitle}</title>
+	<meta property="og:title" content="le ember | {pathname}" />
+	<meta property="og:description" content="yeah uh this ember nest of autism" />
+	<meta property="og:url" content="https://t480.dev{pathname}" />
+	<meta property="og:image" content="/assets/picture.png" />
 	<link rel="me" href="https://hachyderm.io/@imcharlie" />
 </svelte:head>
 
-<header>
-	<h1>charlie's webcave</h1>
-	<p>the time in vilnius is {vilniusTime}</p>
-</header>
+<div class="shell">
+	{#if !isHome}
+		<a class="home-link" href="/">ember</a>
+	{/if}
 
-<main>
-	<nav>
-		<div class="links">
-			<a href="/" class:active={$page.url.pathname === '/'}><i class="fa-solid fa-house"></i> home</a>
-			<a href="/blog" class:active={$page.url.pathname.startsWith('/blog')}><i class="fa-solid fa-newspaper"></i> my blog</a>
-			<a href="/about" class:active={$page.url.pathname.startsWith('/about')}><i class="fa-solid fa-address-card"></i> about me</a>
-			<a href="/projects" class:active={$page.url.pathname.startsWith('/projects')}><i class="fa-solid fa-code"></i> projects</a>
-			<a href="/contact" class:active={$page.url.pathname.startsWith('/contact')}><i class="fa-solid fa-paper-plane"></i> contact</a>
-			<a href="/presence" class:active={$page.url.pathname.startsWith('/presence')}><i class="fa-solid fa-user"></i> presence</a>
-			<a href="/donate" class:active={$page.url.pathname.startsWith('/donate')}><i class="fa-solid fa-piggy-bank"></i> donate</a>
-		</div>
-		<div class="images">
-			<hr />
-			<img src={picture} alt="blahaj." title="me.png" id="picture" />
-			<hr />
-			<a href="https://www.mabsland.com/Adoption.html" id="censor"><img src={censor} alt="website content is rated WEB-14" title="This site is rated WEB-14. However, external links may not be rated." /></a>
-		</div>
-	</nav>
-
-	<article>
+	<main>
 		<slot />
-	</article>
-</main>
+	</main>
 
-<footer>
-	<p><i>made with</i> ❤ <i>by charlie</i> | <i>site last modified 8th of March 2026</i> | <a href="https://github.com/embeputer/www">source code viewable here</a></p>
-	<p><img src={blahaj} alt="blåhaj" style="height:15px;" /> certified Good Website by blåhaj</p>
-</footer>
+	<footer class="site-footer">
+		<p>made by a puppy and machines of loving grace · <span class="clock">vilnius {vilniusTime}</span></p>
+		<a href="https://github.com/embeputer/www">source code</a>
+	</footer>
+</div>

@@ -31,7 +31,7 @@ options:
   --dry-run     print the file instead of writing it.
   --help        show this text.
 
-the blog index and the atom and rss feeds pick up the new file on their own.
+the blog index picks up the new file on its own.
 this script does not commit or push.
 `;
 

@@ -1,21 +1,18 @@
-## _ring ring_ oh, someone's contacting me
+## the contact thing page whatever the hell
 
 If you need to contact me, I have a few options you can use.
 
-- [<i class="fa-brands fa-signal-messenger"></i> @nAa](https://signal.me/) | Signal (this account does not exist. i currently dont use signal) <i class="fa-solid fa-lock"></i>
-- [<i class="fa-brands fa-telegram"></i> @embeputer](https://t.me/embeputer) | Telegram (just dont be weird i beg, to prove youre not a robot i currently dont respond unless your first message is PGP encrypted with your public key file attached.) <i class="fa-solid fa-lock"></i>
-- [<i class="fa-solid fa-envelope"></i> charco@tuta.io](mailto:charco@tuta.io) | E-mail <i class="fa-solid fa-key"></i>
-
-**<i class="fa-solid fa-lock"></i> These are reasonably secure platforms.** If you need to reach out to me regarding sensitive information, You can use most of these methods for your safety.
+- [<i class="fa-brands fa-telegram"></i> @embeputer](https://t.me/embeputer) | Telegram <i class="fa-solid fa-lock"></i>
+- [<i class="fa-solid fa-envelope"></i> stellirious@gmail.com](mailto:stellirious@gmail.com) | opsec level demon email <i class="fa-solid fa-key"></i>
 
 ### OpenPGP and Email
 
-It is best practice to encrypt all emails using OpenPGP. This ensures only the sender and recipient have access to the contents of the encrypted email.
+as of 22 november 2026, openpgp is a bit of a WIP for me. if you need privacy, i reccomend telegram, or xchat, email at your own risk
 
-IF you are contacting me via email and you yourself are emailing me from a Tuta Email inbox, you can skip this step as our emails will most likely be e2ee already.
+It is best practice to encrypt all emails using OpenPGP. This ensures only the sender and recipient have access to the contents of the encrypted email.
 
 When sending me your encrypting email, you will need my OpenPGP public key. You can obtain it from the following sources:
 
-- [<i class="fa-solid fa-link"></i> keys.openpgp.org](https://keys.openpgp.org/search?q=charco%40tuta.io)
+- [<i class="fa-solid fa-link"></i> keys.openpgp.org](https://keys.openpgp.org/search?q=stellirious%40gmail.com)
 
 If you want further details on how to use OpenPGP, [this is a pretty good guide](https://help.riseup.net/en/security/message-security/openpgp) that goes into much further detail.

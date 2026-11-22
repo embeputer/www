@@ -14,4 +14,4 @@ I have also started learning some math and science and a bit of CS via brilliant
 
 # End.
 
-This is the end of my blog post, uhhh insert conclusion or something here, charlie out!
+This is the end of my blog post, uhhh insert conclusion or something here, ember out!

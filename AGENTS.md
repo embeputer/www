@@ -1,6 +1,6 @@
 # AGENTS.md – Codebase documentation for AI agents
 
-This file documents the structure and conventions of charlie's webcave (pupsite).
+This file documents the structure and conventions of ember's webcave (pupsite).
 
 ## Tech stack
 
@@ -23,19 +23,16 @@ src/
 ├── routes/
 │   ├── +layout.svelte # Root layout: header, nav, footer
 │   ├── +layout.ts    # Layout load (if any)
-│   ├── +page.md      # Home page
-│   ├── about/+page.md
+│   ├── +page.svelte  # Home page
 │   ├── blog/
 │   │   ├── +page.md      # Blog index
 │   │   ├── +page.ts      # Loads posts via fetchMarkdownPosts()
-│   │   ├── atom.xml/+server.ts
-│   │   ├── rss.xml/+server.ts
 │   │   └── entry/
 │   │       ├── reader.svelte   # Layout for blog entries (mdsvex layout)
 │   │       └── YYYYMMDD/+page.md   # Individual posts
 │   ├── contact/+page.md
 │   ├── donate/+page.md
-│   ├── presence/+page.md
+│   ├── guestbook/+page.svelte
 │   └── projects/+page.md
 static/
 ├── css/body.css      # Global styles, CSS variables, .sr-only
@@ -52,16 +49,19 @@ static/
 
 ## Key conventions
 
-- **Navbar:** Defined in `+layout.svelte`. Uses `$page.url.pathname` for active link styling (`.active` class)
-- **Footer:** Site metadata, GitHub link (embeputer/www), last modified date
-- **Mastodon rel="me":** Hidden link in `<svelte:head>` with `class="sr-only"` for verification
+- **Home:** Left-aligned link index in `src/routes/+page.svelte`. Inner pages get an “ember” home link from `+layout.svelte`.
+- **Guestbook:** `/guestbook` uses GitHub OAuth (`GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`). The message box shows only after sign-in. Each GitHub account can sign once, then only edit or remove that signature. Signatures are stored in `data/guestbook.json`. The route is not prerendered.
+- **Footer:** Credit, Vilnius clock, GitHub link (embeputer/www)
+- **Mastodon rel="me":** `<link rel="me">` in `<svelte:head>`. The GitHub anchor on the home index also has `rel="me"`.
 - **Assets:** Imported from `/assets/` (e.g. `picture.png`, `censor.gif`, `blahaj.png`)
 
 ## Styling
 
-- CSS variables in `:root` for theming (light/dark via `prefers-color-scheme`)
-- `.sr-only` for visually hidden content (e.g. Mastodon link)
-- Responsive breakpoints at 810px and 450px
+- CSS variables in `:root` for black/white theming (light/dark via `prefers-color-scheme`)
+- Type is self-hosted Geist Serif (`static/fonts/GeistSerifVF.woff2`)
+- `.sr-only` for visually hidden content
+- The page column sits on the left. The footer spans the window.
+- Responsive collapse at 450px
 
 ## Scripts
 
@@ -83,7 +83,7 @@ Create it with the script so the path and frontmatter match the other entries:
 npm run new-post -- --title "post title" --date YYYY-MM-DD --body-file draft.md
 ```
 
-A full draft piped on stdin works too. If that draft starts with frontmatter, `title`, `date`, and `modified` are used when the matching flag is omitted. The file lands at `src/routes/blog/entry/YYYYMMDD/+page.md`. One post per calendar day; pass `--force` only to replace that day's file. The index, atom feed, and RSS feed discover the file on their own. Do not commit or push unless the user asks.
+A full draft piped on stdin works too. If that draft starts with frontmatter, `title`, `date`, and `modified` are used when the matching flag is omitted. The file lands at `src/routes/blog/entry/YYYYMMDD/+page.md`. One post per calendar day; pass `--force` only to replace that day's file. The index discovers the file on its own. Do not commit or push unless the user asks.
 
 ## Domain
 
