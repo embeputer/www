@@ -95,10 +95,45 @@ export function takeState(cookies: Cookies) {
 	return state ?? null;
 }
 
-export function readMarks(): Mark[] {
+const blobPath = 'guestbook.json';
+
+function blobEnabled() {
+	return Boolean(env.BLOB_READ_WRITE_TOKEN || env.BLOB_STORE_ID);
+}
+
+function parseMarks(text: string): Mark[] {
+	const marks = JSON.parse(text) as Mark[];
+	return Array.isArray(marks) ? marks : [];
+}
+
+async function readBlob(): Promise<Mark[]> {
+	const { get } = await import('@vercel/blob');
+	const result = await get(blobPath, { access: 'private', useCache: false });
+	if (!result || result.statusCode !== 200 || !result.stream) return [];
+	return parseMarks(await new Response(result.stream).text());
+}
+
+async function writeBlob(marks: Mark[]) {
+	const { put } = await import('@vercel/blob');
+	await put(blobPath, JSON.stringify(marks, null, 2), {
+		access: 'private',
+		addRandomSuffix: false,
+		allowOverwrite: true,
+		contentType: 'application/json'
+	});
+}
+
+export async function readMarks(): Promise<Mark[]> {
+	if (blobEnabled()) {
+		try {
+			return await readBlob();
+		} catch {
+			return [];
+		}
+	}
+
 	try {
-		const marks = JSON.parse(readFileSync(file, 'utf8')) as Mark[];
-		return Array.isArray(marks) ? marks : [];
+		return parseMarks(readFileSync(file, 'utf8'));
 	} catch {
 		return [];
 	}
@@ -108,17 +143,23 @@ function sameLogin(a: string, b: string) {
 	return a.toLowerCase() === b.toLowerCase();
 }
 
-function writeMarks(marks: Mark[]) {
+async function writeMarks(marks: Mark[]) {
+	if (blobEnabled()) {
+		await writeBlob(marks);
+		return;
+	}
+
 	mkdirSync(dirname(file), { recursive: true });
 	writeFileSync(file, JSON.stringify(marks, null, 2));
 }
 
-export function findMark(login: string) {
-	return readMarks().find((mark) => sameLogin(mark.login, login)) ?? null;
+export async function findMark(login: string) {
+	const marks = await readMarks();
+	return marks.find((mark) => sameLogin(mark.login, login)) ?? null;
 }
 
-export function addMark(guest: Guest, message: string) {
-	const marks = readMarks();
+export async function addMark(guest: Guest, message: string) {
+	const marks = await readMarks();
 	if (marks.some((mark) => sameLogin(mark.login, guest.login))) return false;
 	marks.unshift({
 		login: guest.login,
@@ -126,12 +167,12 @@ export function addMark(guest: Guest, message: string) {
 		message,
 		at: new Date().toISOString()
 	});
-	writeMarks(marks);
+	await writeMarks(marks);
 	return true;
 }
 
-export function updateMark(guest: Guest, message: string) {
-	const marks = readMarks();
+export async function updateMark(guest: Guest, message: string) {
+	const marks = await readMarks();
 	const index = marks.findIndex((mark) => sameLogin(mark.login, guest.login));
 	if (index === -1) return false;
 	marks[index] = {
@@ -140,10 +181,11 @@ export function updateMark(guest: Guest, message: string) {
 		message,
 		at: new Date().toISOString()
 	};
-	writeMarks(marks.filter((mark, i) => i === index || !sameLogin(mark.login, guest.login)));
+	await writeMarks(marks.filter((mark, i) => i === index || !sameLogin(mark.login, guest.login)));
 	return true;
 }
 
-export function removeMark(login: string) {
-	writeMarks(readMarks().filter((mark) => !sameLogin(mark.login, login)));
+export async function removeMark(login: string) {
+	const marks = await readMarks();
+	await writeMarks(marks.filter((mark) => !sameLogin(mark.login, login)));
 }

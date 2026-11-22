@@ -8,7 +8,7 @@ This file documents the structure and conventions of ember's webcave (pupsite).
 - **Build:** Vite 5
 - **Styling:** Plain CSS (`static/css/body.css`)
 - **Content:** mdsvex for Markdown pages
-- **Adapter:** @sveltejs/adapter-static (static site generation)
+- **Adapter:** @sveltejs/adapter-vercel. Prerendered pages stay static. The guestbook and GitHub OAuth routes run as server functions.
 - **Icons:** Font Awesome 6
 
 ## Project structure
@@ -50,7 +50,7 @@ static/
 ## Key conventions
 
 - **Home:** Left-aligned link index in `src/routes/+page.svelte`. Inner pages get an “ember” home link from `+layout.svelte`.
-- **Guestbook:** `/guestbook` uses GitHub OAuth (`GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`). The message box shows only after sign-in. Each GitHub account can sign once, then only edit or remove that signature. Signatures are stored in `data/guestbook.json`. The route is not prerendered.
+- **Guestbook:** `/guestbook` uses GitHub OAuth (`GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`). The message box shows only after sign-in. Each GitHub account can sign once, then only edit or remove that signature. Locally, signatures are stored in `data/guestbook.json`. On Vercel they are stored in a private Blob when `BLOB_READ_WRITE_TOKEN` or `BLOB_STORE_ID` is set. The route is not prerendered.
 - **Footer:** Credit, Vilnius clock, GitHub link (embeputer/www)
 - **Mastodon rel="me":** `<link rel="me">` in `<svelte:head>`. The GitHub anchor on the home index also has `rel="me"`.
 - **Assets:** Imported from `/assets/` (e.g. `picture.png`, `censor.gif`, `blahaj.png`)
@@ -66,7 +66,7 @@ static/
 ## Scripts
 
 - `npm run dev` – dev server
-- `npm run build` – static build
+- `npm run build` – production build (Vercel output)
 - `npm run preview` – preview build
 - `npm run test` – Playwright tests
 - `npm run check` – Svelte type check

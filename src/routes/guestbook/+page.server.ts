@@ -3,10 +3,10 @@ import { addMark, clearGuest, readGuest, readMarks, removeMark, updateMark } fro
 
 export const prerender = false;
 
-export function load({ cookies }) {
+export async function load({ cookies }) {
 	return {
 		user: readGuest(cookies),
-		marks: readMarks()
+		marks: await readMarks()
 	};
 }
 
@@ -19,7 +19,7 @@ export const actions = {
 			.trim()
 			.slice(0, 280);
 		if (!message) return fail(400);
-		if (!addMark(user, message)) return fail(409);
+		if (!(await addMark(user, message))) return fail(409);
 
 		redirect(303, '/guestbook/');
 	},
@@ -32,7 +32,7 @@ export const actions = {
 			.trim()
 			.slice(0, 280);
 		if (!message) return fail(400);
-		if (!updateMark(user, message)) return fail(404);
+		if (!(await updateMark(user, message))) return fail(404);
 
 		redirect(303, '/guestbook/');
 	},
@@ -41,7 +41,7 @@ export const actions = {
 		const user = readGuest(cookies);
 		if (!user) return fail(401);
 
-		removeMark(user.login);
+		await removeMark(user.login);
 		redirect(303, '/guestbook/');
 	},
 
