@@ -50,10 +50,12 @@
 
 <svelte:head>
 	<title>{documentTitle}</title>
-	<meta property="og:title" content="le ember | {pathname}" />
-	<meta property="og:description" content="yeah uh this ember nest of autism" />
-	<meta property="og:url" content="https://t480.dev{pathname}" />
-	<meta property="og:image" content="/assets/picture.png" />
+	<meta property="og:title" content="em | {pathname}" />
+	<meta property="og:description" content="ember aetheria is a design engineer." />
+	<meta property="og:url" content={$page.url.href} />
+	<meta property="og:image" content="{$page.url.origin}/og.png" />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
 	<link rel="me" href="https://hachyderm.io/@imcharlie" />
 </svelte:head>
 

@@ -87,7 +87,7 @@ A full draft piped on stdin works too. If that draft starts with frontmatter, `t
 
 ## Domain
 
-- Production: https://t480.dev
+- Production: https://embx.vercel.app
 
 ## Cursor Cloud
 
